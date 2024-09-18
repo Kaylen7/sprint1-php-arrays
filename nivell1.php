@@ -8,14 +8,15 @@
 </style>
 
 <?php
-$utilsLocalPath = '../sprint1-php-basics/utils.php';
-$url = 'https://raw.githubusercontent.com/Kaylen7/sprint1-php-basics/main/utils.php';
 
-if (file_exists($utilsLocalPath)){
-    include $utilsLocalPath;
+define('UTILS_PATH', '../sprint1-php-basics/utils.php');
+define('URL', 'https://raw.githubusercontent.com/Kaylen7/sprint1-php-basics/main/utils.php');
+
+if (file_exists(UTILS_PATH)){
+    include UTILS_PATH;
 } 
 else {
-    $response = file_get_contents($url);
+    $response = file_get_contents(URL);
     if (!$response){
         error_log("L'arxiu no existeix: utils.php");
 
@@ -35,10 +36,10 @@ echo implode(', ', $array);
 apartat(2);
 $X = array(10, 20, 30, 40, 50, 60);
 
-print_r("Array length: " . count($X) . " items. <br/>");
+print_r("<b>Array length:</b> " . count($X) . " items. <br/>");
 $new_arr = array_pop($X);
-print_r($X);
-print("<br/>Array length: " . count($X) . " items.<br/>");
+echo("<b>Values of X:</b> " . implode(", ", $X) . " <br/>");
+print("<b>Array length:</b> " . count($X) . " items.<br/>");
 
 apartat(3);
 
