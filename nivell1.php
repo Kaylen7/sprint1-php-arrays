@@ -17,9 +17,9 @@ if (file_exists($utilsLocalPath)){
 else {
     $response = file_get_contents($url);
     if (!$response){
-        error_log('File not found: utils.php');
+        error_log("L'arxiu no existeix: utils.php");
 
-        echo "Sorry, the requested site is unavailable.";
+        echo "Malauradament, la pàgina no està disponible.";
 
         exit;
     }
