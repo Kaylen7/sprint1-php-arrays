@@ -44,23 +44,19 @@ print("<b>Array length:</b> " . count($X) . " items.<br/>");
 apartat(3);
 
 function containsChar(array $array, string $char): bool{
-    $flag = 0;
     if (strlen($char) > 1){
         echo "⚠️ Resultat fals. La funció <code>containsChar</code> no cerca cadenes de text.<br/>";
         return false;
     }
     foreach($array as $word){
-        if (stripos($word, $char) || $word[0] === $char){
-            $flag++;
+        if (!stripos($word, $char) && $word[0] !== $char){
+            return false;
         }
     }
-    if ($flag === 3){
-        return true;
-    }
-    return false;
+    return true;
 }
 
-$result = containsChar(["hola", "Php", "html"], "p");
+$result = containsChar(["hola", "Php", "html"], "x");
 if ($result){
     echo "true";
 } else {
